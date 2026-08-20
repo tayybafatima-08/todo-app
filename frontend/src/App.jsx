@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import './App.css';
 
 const API_URL = 'http://localhost:5000';
 
@@ -44,41 +45,55 @@ function App() {
     fetchTodos();
   };
 
+  const remaining = todos.filter((t) => !t.completed).length;
+
   return (
-    <div>
-      <h1>Todo App</h1>
+    <div className="app">
+      <div className="card">
+        <h1>My Todos</h1>
 
-      <form onSubmit={addTodo}>
-        <input
-          type="text"
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
-          placeholder="New todo"
-        />
-        <button type="submit">Add</button>
-      </form>
+        <form className="add-form" onSubmit={addTodo}>
+          <input
+            type="text"
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+            placeholder="What needs doing?"
+          />
+          <button type="submit">Add</button>
+        </form>
 
-      <ul>
-        {todos.map((todo) => (
-          <li key={todo.id}>
-            <input
-              type="checkbox"
-              checked={todo.completed}
-              onChange={() => toggleTodo(todo.id, todo.completed)}
-            />
-            <span
-              style={{
-                textDecoration: todo.completed ? 'line-through' : 'none',
-                marginLeft: '8px',
-                marginRight: '8px',
-              }}
-            >
-              {todo.title}
-            </span>
-            <button onClick={() => deleteTodo(todo.id)}>Delete</button>
-          </li>
-        ))}
-      </ul>
+        {todos.length === 0 ? (
+          <p className="empty">No todos yet. Add one above.</p>
+        ) : (
+          <ul className="todo-list">
+            {todos.map((todo) => (
+              <li key={todo.id} className={todo.completed ? 'completed' : ''}>
+                <label>
+                  <input
+                    type="checkbox"
+                    checked={todo.completed}
+                    onChange={() => toggleTodo(todo.id, todo.completed)}
+                  />
+                  <span className="title">{todo.title}</span>
+                </label>
+                <button
+                  className="delete-btn"
+                  onClick={() => deleteTodo(todo.id)}
+                  aria-label="Delete todo"
+                >
+                  ✕
+                </button>
+              </li>
+            ))}
+          </ul>
+        )}
+
+        {todos.length > 0 && (
+          <p className="count">
+            {remaining} {remaining === 1 ? 'item' : 'items'} left
+          </p>
+        )}
+      </div>
     </div>
   );
 }
