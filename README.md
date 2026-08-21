@@ -1,6 +1,3 @@
-Here's the full content — copy everything below into `your-todo-app/README.md`:
-
-```markdown
 # Todo App
 
 A full-stack Todo application built with React, Express, Prisma, and PostgreSQL.
@@ -78,4 +75,3 @@ Runs on `http://localhost:5173`
 | GET | `/todos/:id` | Get a single todo |
 | PATCH | `/todos/:id` | Update a todo (e.g. toggle completed) |
 | DELETE | `/todos/:id` | Delete a todo |
-
