@@ -79,9 +79,3 @@ Runs on `http://localhost:5173`
 | PATCH | `/todos/:id` | Update a todo (e.g. toggle completed) |
 | DELETE | `/todos/:id` | Delete a todo |
 
-## What I Learned
-I learned how the frontend, backend, and database work as genuinely separate programs that only talk over HTTP/SQL — not one big app — and why that separation matters for security. I also learned the full CRUD pattern end-to-end, and got comfortable with the branch → commit → push → PR → merge Git workflow.
-
-## Hardest Part
-The trickiest part was understanding how Prisma's migration history is tracked both locally and in the database, and what to do when the two get out of sync.
-```
