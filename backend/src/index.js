@@ -10,7 +10,7 @@ const app = express();
 const adapter = new PrismaPg({ connectionString: process.env.DATABASE_URL });
 const prisma = new PrismaClient({ adapter });
 
-app.use(cors());
+  app.use(cors({ origin: 'https://todo-app-tau-one-71.vercel.app/' }));
 app.use(express.json());
 
 // Test route
