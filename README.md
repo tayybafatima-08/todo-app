@@ -2,6 +2,10 @@
 
 A full-stack Todo application built with React, Express, Prisma, and PostgreSQL.
 
+## Live App
+- **Frontend:** https://todo-app-tau-one-71.vercel.app
+- **Backend API:** https://todo-app-production-b51b.up.railway.app
+
 ## Tech Stack
 - **Frontend:** React (Vite)
 - **Backend:** Express.js
